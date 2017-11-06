@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="participantDao" class="com.app_jour_j.mvc.dao.impl.ParticipantDaoImpl" />
+	<bean id="participantService" class="com.app_jour_j.mvc.services.impl.ParticipantServiceImpl">
+		<property name="dao" ref="participantDao" />
+	</bean>
+
+	<bean id="enseignantDao" class="com.app_jour_j.mvc.dao.impl.EnseignantDaoImpl" />
+	<bean id="enseignantService" class="com.app_jour_j.mvc.services.impl.EnseignantServiceImpl">
+		<property name="dao" ref="enseignantDao" />
+	</bean>
+	
+	<bean id="mediaDao" class="com.app_jour_j.mvc.dao.impl.MediaDaoImpl" />
+	<bean id="mediaService" class="com.app_jour_j.mvc.services.impl.MediaServiceImpl">
+		<property name="dao" ref="mediaDao" />
+	</bean>
+	
+	<bean id="industrielDao" class="com.app_jour_j.mvc.dao.impl.IndustrielDaoImpl" />
+	<bean id="industrielService" class="com.app_jour_j.mvc.services.impl.IndustrielServiceImpl">
+		<property name="dao" ref="industrielDao" />
+	</bean>
+</beans>

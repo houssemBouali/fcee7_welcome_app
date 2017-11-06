@@ -16,6 +16,4 @@ public interface IGenericDao<E> {
 
 	public E findOne(String paramName, Object paramValue);
 
-	public E findOne(String[] paramNames, Object[] paramValues);
-
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.app_jour_j.mvc.dao.IGenericDao;
 
@@ -31,38 +32,35 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public E update(E entity) {
-		
-		return null;
+		return em.merge(entity);
 	}
 
 	@Override
 	public List<E> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select t from " + type.getSimpleName() + "t");
+		return query.getResultList();
 	}
 
 	@Override
 	public E getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(type, id);
 	}
 
 	@Override
 	public void remove(Long id) {
-		// TODO Auto-generated method stub
-
+		E tab = em.getReference(type, id);
+		em.remove(tab);
 	}
 
 	@Override
 	public E findOne(String paramName, Object paramValue) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t where " + paramName + " = :x ");
+		query.setParameter(paramName, paramValue);
+		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
 
-	@Override
-	public E findOne(String[] paramNames, Object[] paramValues) {
-		// TODO Auto-generated method stub
-		return null;
+	public Class<E> getType() {
+		return type;
 	}
 
 }

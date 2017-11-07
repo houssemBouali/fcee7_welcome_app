@@ -22,4 +22,5 @@
 	<bean id="industrielService" class="com.app_jour_j.mvc.services.impl.IndustrielServiceImpl">
 		<property name="dao" ref="industrielDao" />
 	</bean>
+
 </beans>

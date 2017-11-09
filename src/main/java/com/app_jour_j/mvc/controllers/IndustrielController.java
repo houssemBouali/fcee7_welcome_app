@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/industriel")
 public class IndustrielController {
 
-	@RequestMapping(value = "/industriel")
+	@RequestMapping(value = "/")
 	public String test(){
 		return "main_views/industriel";
 	}

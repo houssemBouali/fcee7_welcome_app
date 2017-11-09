@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

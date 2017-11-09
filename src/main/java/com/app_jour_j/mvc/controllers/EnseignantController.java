@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/enseignant")
 public class EnseignantController {
 	
-	@RequestMapping(value = "/enseignant")
+	@RequestMapping(value = "/")
 	public String test () {
 		
 		return "main_views/enseignant";

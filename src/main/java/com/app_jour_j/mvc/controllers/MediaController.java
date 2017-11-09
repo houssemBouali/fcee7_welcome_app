@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/media")
 public class MediaController {
 	
-	@RequestMapping(value = "/media")
+	@RequestMapping(value = "/")
 	public String test(){
 		
 		return "main_views/media";

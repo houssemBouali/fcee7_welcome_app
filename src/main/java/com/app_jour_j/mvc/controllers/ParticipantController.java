@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.app_jour_j.mvc.entities.Participant;
 import com.app_jour_j.mvc.services.IParticipantService;
 
@@ -18,7 +17,7 @@ public class ParticipantController {
 	@Autowired
 	IParticipantService participantService;
 
-	@RequestMapping(value = "/participant")
+	@RequestMapping(value = "/")
 	public String participant(Model model) {
 		List<Participant> participants = participantService.selectAll();
 		if (participants == null) {

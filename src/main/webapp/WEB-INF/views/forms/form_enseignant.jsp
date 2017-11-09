@@ -1,4 +1,3 @@
-<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -31,17 +30,53 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/menu/menu.jsp"%>
+<%@ include file="/WEB-INF/views/menu/menu.jsp"%>
 	<div id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Blank</h1>
+					<h1 class="page-header">Ajouter enseignant</h1>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">Remplir avec vos informations :</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<form role="form">
+												<div class="form-group">
+													<label>Nom :</label> <input class="form-control"
+														placeholder="Saisir votre nom">
+												</div>
+												<div class="form-group">
+													<label>Prénom :</label> <input class="form-control"
+														placeholder="Saisir votre prénom">
+												</div>
+												<div class="form-group">
+													<label>Grade :</label> <input class="form-control"
+														placeholder="Exemple : Docteur">
+												</div>
+												<div style="margin-left: 30%; margin-top: 3%">
+													<button type="submit" class="btn btn-success">Confirmer</button>
+													<button type="reset" class="btn btn-info">Réinitialiser</button>
+												</div>
+											</form>
+											<!-- /.col-lg-6 (nested) -->
+										</div>
+										<!-- /.row (nested) -->
+									</div>
+									<!-- /.panel-body -->
+								</div>
+								<!-- /.panel -->
+							</div>
+							<!-- /.col-lg-12 -->
+						</div>
+						<!-- /.row -->
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- jQuery -->
 	<script
 		src="<%=request.getContextPath()%>/resources/vendor/jquery/jquery.min.js"></script>

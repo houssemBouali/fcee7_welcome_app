@@ -15,7 +15,7 @@ public class Participant implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(nullable = false, unique = true)
-	private Long idEtudiant;
+	private Long idParticipant;
 	private String nom;
 	private String prenom;
 	private String statut; // etudiant ou autre
@@ -29,8 +29,8 @@ public class Participant implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getIdEtudiant() {
-		return idEtudiant;
+	public Long getIdParticipant() {
+		return idParticipant;
 	}
 
 	public String getNom() {
@@ -61,8 +61,8 @@ public class Participant implements Serializable {
 		return workshopSelectionne;
 	}
 
-	public void setIdEtudiant(Long idEtudiant) {
-		this.idEtudiant = idEtudiant;
+	public void setIdParticipant(Long idParticipant) {
+		this.idParticipant = idParticipant;
 	}
 
 	public void setNom(String nom) {

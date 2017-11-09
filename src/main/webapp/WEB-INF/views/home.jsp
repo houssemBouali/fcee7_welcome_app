@@ -1,5 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ include file="/WEB-INF/views/includes/includes.jsp" %>
 <html>
 <head>
 	<title>Home</title>
@@ -8,7 +7,7 @@
 <h1>
 	Hello world!  
 </h1>
-
 <P>  The time on the server is ${serverTime}. </P>
+Voilaaaaaaaaa
 </body>
 </html>

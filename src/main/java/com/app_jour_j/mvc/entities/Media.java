@@ -20,6 +20,7 @@ public class Media implements Serializable {
 	private String prenom;
 	private String statut;
 	private String chaine;
+	private Long numTelephone;
 	private String email;
 	private String logoChaine;
 
@@ -47,6 +48,10 @@ public class Media implements Serializable {
 		return chaine;
 	}
 
+	public Long getNumTelephone(){
+		return numTelephone;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -73,6 +78,10 @@ public class Media implements Serializable {
 
 	public void setChaine(String chaine) {
 		this.chaine = chaine;
+	}
+	
+	public void setNumTelephone(Long numTelephone){
+		this.numTelephone = numTelephone;
 	}
 
 	public void setEmail(String email) {

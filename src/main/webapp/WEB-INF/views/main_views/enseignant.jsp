@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -55,12 +56,13 @@
 							</tr>
 						</thead>
 						<tbody>
-
-							<tr class="odd gradeX">
-								<td class="center"></td>
-								<td class="center"></td>
-								<td></td>
-							</tr>
+							<c:forEach items="${enseignants }" var="enseignant">
+								<tr class="odd gradeX">
+									<td class="center">${enseignant.getNom() }</td>
+									<td class="center">${enseignant.getPrenom() }</td>
+									<td>${enseignant.getGrade() }</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

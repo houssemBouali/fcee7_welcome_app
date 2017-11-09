@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,7 +41,7 @@
 		</div>
 		<!-- /.row -->
 		<div class="col-lg-12">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">Liste des inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -59,12 +60,14 @@
 						</thead>
 						<tbody>
 							<tr class="odd gradeX">
-								<td></td>
-								<td></td>
-								<td></td>
-								<td class="center"></td>
-								<td class="center"></td>
-								<td></td>
+								<c:forEach items="${medias }" var="media">
+									<td>${media.getNom() }</td>
+									<td>${media.getPrenom() }</td>
+									<td>${media.getStatut() }</td>
+									<td class="center">${media.getChaine() }</td>
+									<td>${media.getNumTelephone() }</td>
+									<td class="center">${media.getEmail() }</td>
+								</c:forEach>
 							</tr>
 						</tbody>
 					</table>

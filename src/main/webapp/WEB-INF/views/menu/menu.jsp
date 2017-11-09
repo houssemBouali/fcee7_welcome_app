@@ -45,7 +45,7 @@
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
-						<li><a href="javascript:void(0)""><i
+						<li><a href="javascript:void(0)"><i
 								class="fa fa-dashboard fa-fw"></i>&ensp;&ensp;Tableau De Bord</a></li>
 						<!-- ENSEIGNANT -->
 						<c:url value="/enseignant/" var="enseignant" />

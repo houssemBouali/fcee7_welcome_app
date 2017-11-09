@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -50,7 +51,7 @@
 		</div>
 		<!-- /.row -->
 		<div class="col-lg-12">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">Liste des industriels inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -69,12 +70,14 @@
 						</thead>
 						<tbody>
 							<tr class="odd gradeX">
-								<td></td>
-								<td></td>
-								<td></td>
-								<td class="center"></td>
-								<td class="center"></td>
-								<td></td>
+								<c:forEach items="${industriels }" var="indus">
+									<td>${indus.getNom() }</td>
+									<td>${indus.getPrenom() }</td>
+									<td>${indus.getPoste() }</td>
+									<td class="center">${indus.getEntreprise() }</td>
+									<td class="center">${indus.getNumeroTelephone() }</td>
+									<td>${indus.getEmail() }</td>
+								</c:forEach>
 							</tr>
 						</tbody>
 					</table>

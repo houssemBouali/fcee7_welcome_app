@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,24 +44,25 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-6">
-											<form role="form">
+											<c:url value="/enseignant/add" var="url_add"/>
+											<f:form modelAttribute="enseignant" action="${url_add }" method="post" role="form">
 												<div class="form-group">
-													<label>Nom :</label> <input class="form-control"
-														placeholder="Saisir votre nom">
+													<label>Nom :</label> <f:input path="nom" class="form-control"
+														placeholder="Saisir votre nom"/>
 												</div>
 												<div class="form-group">
-													<label>Prénom :</label> <input class="form-control"
-														placeholder="Saisir votre prénom">
+													<label>Prénom :</label> <f:input path="prenom" class="form-control"
+														placeholder="Saisir votre prénom" />
 												</div>
 												<div class="form-group">
-													<label>Grade :</label> <input class="form-control"
-														placeholder="Exemple : Docteur">
+													<label>Grade :</label> <f:input path="grade" class="form-control"
+														placeholder="Exemple : Docteur" />
 												</div>
 												<div style="margin-left: 30%; margin-top: 3%">
 													<button type="submit" class="btn btn-success">Confirmer</button>
 													<button type="reset" class="btn btn-info">Réinitialiser</button>
 												</div>
-											</form>
+											</f:form>
 											<!-- /.col-lg-6 (nested) -->
 										</div>
 										<!-- /.row (nested) -->

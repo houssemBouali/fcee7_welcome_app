@@ -49,6 +49,14 @@
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
+		<nav aria-label="breadcrumb" role="navigation">
+			<ol class="breadcrumb">
+				<c:url value="/industriel/add" var="ajouterIndustriel"/>
+				<li class="breadcrumb-item"><a href="${ajouterIndustriel }">Ajouter</a></li>
+				<li class="breadcrumb-item"><a href="#">Library</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Data</li>
+			</ol>
+		</nav>
 		<!-- /.row -->
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
@@ -66,6 +74,7 @@
 								<th>Entreprise</th>
 								<th>N° Telephone</th>
 								<th>E-mail</th>
+								<th width="80px">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -77,6 +86,13 @@
 									<td class="center">${indus.getEntreprise() }</td>
 									<td class="center">${indus.getNumeroTelephone() }</td>
 									<td>${indus.getEmail() }</td>
+									<td>
+										<a href="#" title="Modifier"><i
+												class="glyphicon glyphicon-edit"></i></a>&ensp; 
+												&ensp;&ensp;
+										<a href="#"
+											title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+									</td>
 								</c:forEach>
 							</tr>
 						</tbody>

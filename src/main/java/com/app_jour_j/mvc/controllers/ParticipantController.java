@@ -18,12 +18,18 @@ public class ParticipantController {
 	IParticipantService participantService;
 
 	@RequestMapping(value = "/")
-	public String participant(Model model) {
+	public String getAll(Model model) {
 		List<Participant> participants = participantService.selectAll();
 		if (participants == null) {
 			participants = new ArrayList<Participant>();
 		}
 		model.addAttribute("participants", participants);
 		return "main_views/participant";
+	}
+
+	@RequestMapping(value = "/add")
+	public String add() {
+
+		return "forms/form_participant";
 	}
 }

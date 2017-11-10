@@ -17,14 +17,20 @@ public class IndustrielController {
 
 	@Autowired
 	IIndustrielService indusService;
-	
+
 	@RequestMapping(value = "/")
-	public String getAllIndustriels(Model model){
+	public String getAll(Model model) {
 		List<Industriel> industriels = indusService.selectAll();
 		if (industriels == null) {
 			industriels = new ArrayList<Industriel>();
 		}
 		model.addAttribute("industriels", industriels);
 		return "main_views/industriel";
+	}
+
+	@RequestMapping(value = "/add")
+	public String add() {
+
+		return "forms/form_industriel";
 	}
 }

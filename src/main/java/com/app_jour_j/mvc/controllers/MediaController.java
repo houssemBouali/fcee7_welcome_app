@@ -14,17 +14,23 @@ import com.app_jour_j.mvc.services.IMediaService;
 @Controller
 @RequestMapping(value = "/media")
 public class MediaController {
-	
+
 	@Autowired
 	IMediaService mediaService;
-	
+
 	@RequestMapping(value = "/")
-	public String getAllMedia(Model model){
+	public String getAll(Model model) {
 		List<Media> medias = mediaService.selectAll();
 		if (medias == null) {
 			medias = new ArrayList<Media>();
 		}
 		model.addAttribute("medias", medias);
 		return "main_views/media";
+	}
+
+	@RequestMapping(value = "/add")
+	public String add() {
+
+		return "forms/form_media";
 	}
 }

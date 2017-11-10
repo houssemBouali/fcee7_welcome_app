@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/views/includes/includes.jsp" %>
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,20 +39,28 @@
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
+		<nav aria-label="breadcrumb" role="navigation">
+			<ol class="breadcrumb">
+				<c:url value="/enseignant/add" var="ajouterEnseignant" />
+				<li class="breadcrumb-item"><a href="${ajouterEnseignant }">Ajouter</a></li>
+				<li class="breadcrumb-item"><a href="#">Library</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Data</li>
+			</ol>
+		</nav>
 		<!-- /.row -->
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Liste des enseignants inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
-					<table width="100%"
-						class="table table-striped table-bordered table-hover"
+					<table class="table table-striped table-bordered table-hover"
 						id="dataTables-example">
 						<thead>
 							<tr>
 								<th>Nom</th>
 								<th>Prénom</th>
 								<th>Grade</th>
+								<th width="80px">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -61,6 +69,10 @@
 									<td class="center">${enseignant.getNom() }</td>
 									<td class="center">${enseignant.getPrenom() }</td>
 									<td>${enseignant.getGrade() }</td>
+									<td><a href="#" title="Modifier"><i
+											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
+										href="#" title="Supprimer"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

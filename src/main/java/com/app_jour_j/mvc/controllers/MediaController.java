@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.app_jour_j.mvc.entities.Media;
 import com.app_jour_j.mvc.services.IMediaService;
@@ -28,9 +29,18 @@ public class MediaController {
 		return "main_views/media";
 	}
 
-	@RequestMapping(value = "/add")
-	public String add() {
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add(Model model) {
+		Media media = new Media();
+		model.addAttribute("media", media);
 
 		return "forms/form_media";
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(Model model, Media media) {
+		mediaService.save(media);
+
+		return "redirect:/media/add";
 	}
 }

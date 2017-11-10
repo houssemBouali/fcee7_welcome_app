@@ -46,6 +46,7 @@
 										<div class="col-lg-6">
 											<c:url value="/enseignant/add" var="url_add"/>
 											<f:form modelAttribute="enseignant" action="${url_add }" method="post" role="form">
+											<f:hidden path="idProfessor"/>	
 												<div class="form-group">
 													<label>Nom :</label> <f:input path="nom" class="form-control"
 														placeholder="Saisir votre nom"/>

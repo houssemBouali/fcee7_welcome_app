@@ -53,8 +53,7 @@
 				<div class="panel-heading">Liste des inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
-					<table width="100%"
-						class="table table-striped table-bordered table-hover"
+					<table class="table table-striped table-bordered table-hover"
 						id="dataTables-example">
 						<thead>
 							<tr>
@@ -62,29 +61,48 @@
 								<th>Prénom</th>
 								<th>Statut</th>
 								<th>Etablissement</th>
-								<th>N° Telephone</th>
 								<th>E-mail</th>
-								<th>Workshop</th>
 								<th width="80px">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${participants }" var="participant">
-								<tr class="odd gradeX">
+								<tr>
 									<td>${participant.getNom() }</td>
 									<td>${participant.getPrenom() }</td>
 									<td>${participant.getStatut() }</td>
 									<td>${participant.getEtablissement() }</td>
-									<td class="center">${participant.getNumeroTelephone() }</td>
-									<td class="center">${participant.getEmail() }</td>
-									<td>${participant.getWorkshopSelectionne() }</td>
+									<td>${participant.getEmail() }</td>
 									<td>
-										<a href="#" title="Modifier"><i
-												class="glyphicon glyphicon-edit"></i></a>&ensp; 
-												&ensp;&ensp;
-										<a href="#"
-											title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
-									</td>
+									<c:url value="/participant/edit/${participant.getIdParticipant() }"
+										var="url_edit" />
+									<a href="${url_edit }" title="Modifier"><i
+											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
+										href="javascript:void(0);" data-toggle="modal" data-target="#modalParticipant${participant.getIdParticipant() }"
+										title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+										<div class="modal fade" id="modalParticipant${participant.getIdParticipant() }" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">&times;</button>
+														<h4 class="modal-title" id="myModalLabel">Supprimer</h4>
+													</div>
+													<div class="modal-body">Voulez vous supprimer ce participant</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary"
+															data-dismiss="modal">Annuler</button>
+														<c:url value="/participant/delete/${participant.getIdParticipant() }" var="url_del" />
+														<a href="${url_del }" class="btn btn-danger">Confirmer
+														</a>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -92,7 +110,10 @@
 				</div>
 			</div>
 		</div>
+		<br>
 	</div>
+
+
 	<!-- jQuery -->
 	<script
 		src="<%=request.getContextPath()%>/resources/vendor/jquery/jquery.min.js"></script>

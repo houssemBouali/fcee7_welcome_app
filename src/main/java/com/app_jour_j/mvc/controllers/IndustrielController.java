@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.app_jour_j.mvc.entities.Industriel;
 import com.app_jour_j.mvc.services.IIndustrielService;
@@ -28,9 +29,18 @@ public class IndustrielController {
 		return "main_views/industriel";
 	}
 
-	@RequestMapping(value = "/add")
-	public String add() {
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add(Model model) {
+		Industriel industriel = new Industriel();
+		model.addAttribute("industriel", industriel);
 
 		return "forms/form_industriel";
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String saveEnseignant(Model model, Industriel industriel) {
+		indusService.save(industriel);
+
+		return "redirect:/industriel/add";
 	}
 }

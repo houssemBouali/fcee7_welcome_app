@@ -19,7 +19,6 @@ public class Enseignant implements Serializable {
 	private String nom;
 	private String prenom;
 	private String grade;
-	private String logoEniso; // auto generated (ENISO logoEniso)
 
 	public Enseignant() {
 		// TODO Auto-generated constructor stub
@@ -41,10 +40,6 @@ public class Enseignant implements Serializable {
 		return grade;
 	}
 
-	public String getLogoEniso() {
-		return logoEniso;
-	}
-
 	public void setIdProfessor(Long idProfessor) {
 		this.idProfessor = idProfessor;
 	}
@@ -59,10 +54,6 @@ public class Enseignant implements Serializable {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
-	}
-
-	public void setLogoEniso(String logoEniso) {
-		this.logoEniso = logoEniso;
 	}
 
 }

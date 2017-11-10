@@ -22,7 +22,6 @@ public class Industriel implements Serializable {
 	private String entreprise;
 	private Long numeroTelephone;
 	private String email;
-	private String logoEntreprise;
 
 	public Industriel() {
 		// TODO Auto-generated constructor stub
@@ -56,10 +55,6 @@ public class Industriel implements Serializable {
 		return email;
 	}
 
-	public String getLogoEntreprise() {
-		return logoEntreprise;
-	}
-
 	public void setIdIndustriel(Long idIndustriel) {
 		this.idIndustriel = idIndustriel;
 	}
@@ -86,10 +81,6 @@ public class Industriel implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void setLogoEntreprise(String logoEntreprise) {
-		this.logoEntreprise = logoEntreprise;
 	}
 
 }

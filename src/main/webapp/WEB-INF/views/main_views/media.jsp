@@ -41,7 +41,7 @@
 		</div>
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<c:url value="/media/add" var="ajouterMedia"/>
+				<c:url value="/media/add" var="ajouterMedia" />
 				<li class="breadcrumb-item"><a href="${ajouterMedia }">Ajouter</a></li>
 				<li class="breadcrumb-item"><a href="#">Library</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
@@ -53,8 +53,7 @@
 				<div class="panel-heading">Liste des inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
-					<table width="100%"
-						class="table table-striped table-bordered table-hover"
+					<table class="table table-striped table-bordered table-hover"
 						id="dataTables-example">
 						<thead>
 							<tr>
@@ -68,23 +67,44 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="odd gradeX">
-								<c:forEach items="${medias }" var="media">
+							<c:forEach items="${medias }" var="media">
+								<tr>
 									<td>${media.getNom() }</td>
 									<td>${media.getPrenom() }</td>
 									<td>${media.getStatut() }</td>
-									<td class="center">${media.getChaine() }</td>
+									<td>${media.getChaine() }</td>
 									<td>${media.getNumTelephone() }</td>
-									<td class="center">${media.getEmail() }</td>
-									<td>
-										<a href="#" title="Modifier"><i
-												class="glyphicon glyphicon-edit"></i></a>&ensp; 
-												&ensp;&ensp;
-										<a href="#"
-											title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
-									</td>
-								</c:forEach>
-							</tr>
+									<td>${media.getEmail() }</td>
+									<td><a href="#" title="Modifier"><i
+											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
+										href="#" data-toggle="modal" data-target="#myModal" title="Supprimer"><i
+											class="glyphicon glyphicon-trash"></i></a>
+										<div class="modal fade" id="myModal" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">&times;</button>
+														<h4 class="modal-title" id="myModalLabel">Supprimer</h4>
+													</div>
+													<div class="modal-body">
+													Voulez vous supprimer !
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary"
+															data-dismiss="modal">Annuler</button>
+														<button type="button" class="btn btn-danger">Confirmer
+															</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

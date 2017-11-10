@@ -22,7 +22,6 @@ public class Media implements Serializable {
 	private String chaine;
 	private Long numTelephone;
 	private String email;
-	private String logoChaine;
 
 	public Media() {
 		// TODO Auto-generated constructor stub
@@ -56,10 +55,6 @@ public class Media implements Serializable {
 		return email;
 	}
 
-	public String getLogoChaine() {
-		return logoChaine;
-	}
-
 	public void setIdMedia(Long idMedia) {
 		this.idMedia = idMedia;
 	}
@@ -86,10 +81,6 @@ public class Media implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void setLogoChaine(String logoChaine) {
-		this.logoChaine = logoChaine;
 	}
 
 }

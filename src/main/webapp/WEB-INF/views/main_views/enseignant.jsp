@@ -69,10 +69,35 @@
 									<td class="center">${enseignant.getNom() }</td>
 									<td class="center">${enseignant.getPrenom() }</td>
 									<td>${enseignant.getGrade() }</td>
-									<td><a href="#" title="Modifier"><i
+									<c:url value="/enseignant/edit/${enseignant.getIdProfessor() }"
+										var="url_edit" />
+									<td><a href="${url_edit }" title="Modifier"><i
 											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
-										href="#" title="Supprimer"><i
-											class="glyphicon glyphicon-trash"></i></a></td>
+										href="javascript:void(0);" data-toggle="modal" data-target="#modalEnseingnant${enseignant.getIdProfessor() }"
+										title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+										<div class="modal fade" id="modalEnseingnant${enseignant.getIdProfessor() }" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">&times;</button>
+														<h4 class="modal-title" id="myModalLabel">Supprimer</h4>
+													</div>
+													<div class="modal-body">Voulez vous supprimer !</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary"
+															data-dismiss="modal">Annuler</button>
+														<c:url value="/enseignant/delete/${enseignant.getIdProfessor() }" var="url_del" />
+														<a href="${url_del }" class="btn btn-danger">Confirmer
+														</a>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,13 +36,40 @@ public class EnseignantController {
 		model.addAttribute("enseignant", enseignant);
 		return "forms/form_enseignant";
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String saveEnseignant(Model model, Enseignant enseignant) {
-		enseignantService.save(enseignant);
-		
-		return "forms/form_enseignant";
+
+		if (enseignant.getIdProfessor() != null) {
+			enseignantService.update(enseignant);
+		} else {
+			enseignantService.save(enseignant);
+		}
+
+		return "redirect:/enseignant/add";
 	}
 
+	@RequestMapping(value = "/edit/{idEnseignant}")
+	public String editEnseignant(Model model, @PathVariable Long idEnseignant) {
+		if (idEnseignant != null) {
+			Enseignant enseignant = enseignantService.getById(idEnseignant);
+			if (enseignant != null) {
+				model.addAttribute("enseignant", enseignant);
+			}
+		}
+		return "forms/form_enseignant";
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteEnseignant(Model model, @PathVariable Long id) {
+		
+		if (id != null) {
+			Enseignant enseignant = enseignantService.getById(id);
+			if (enseignant != null) {
+				enseignantService	.remove(id);
+			}
+		}
+		return "redirect:/enseignant/";
+	}
 
 }

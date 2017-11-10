@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,7 +36,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">Ajouter participant</h1>
+					<h1 class="page-header">Bienvenue a l'ENISo</h1>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-info">
@@ -43,48 +44,44 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-6">
-											<form role="form">
+											<c:url value="/participant/add" var="url_add" />
+											<f:form modelAttribute="participant" action="${url_add }"
+												method="post" role="form">
+											<f:hidden path="idParticipant"/>
 												<div class="form-group">
-													<label>Nom :</label> <input class="form-control"
-														placeholder="Saisir votre nom">
+													<label>Nom :</label>
+													<f:input path="nom" class="form-control"
+														placeholder="Saisir votre nom" />
 												</div>
 												<div class="form-group">
-													<label>Prénom :</label> <input class="form-control"
-														placeholder="Saisir votre prénom">
+													<label>Prénom :</label>
+													<f:input path="prenom" class="form-control"
+														placeholder="Saisir votre prénom" />
 												</div>
 												<div class="form-group">
 													<label>Statut :</label> <label class="radio-inline">
-														<input type="radio" name="optionsRadiosInline"
-														id="optionsRadiosInline1" value="option1" checked>Etudiant
-													</label> <label class="radio-inline"> <input type="radio"
-														name="optionsRadiosInline" id="optionsRadiosInline2"
-														value="option2">Autre
+														<f:radiobutton path="statut" name="optionsRadiosInline"
+															id="optionsRadiosInline1" value="Etudiant" />Etudiant
+													</label> <label class="radio-inline"> <f:radiobutton
+															path="statut" name="optionsRadiosInline"
+															id="optionsRadiosInline2" value="Autre" />Autre
 													</label>
 												</div>
 												<div class="form-group">
-													<label>Etablissement :</label> <input class="form-control"
-														placeholder="Saisir votre établissement">
-												</div>
-												<label>N° téléphone :</label>
-												<div class="form-group input-group">
-
-													<span class="input-group-addon">+216</span> <input
-														type="text" class="form-control" placeholder="99 999 999">
+													<label>Etablissement :</label>
+													<f:input path="etablissement" class="form-control"
+														placeholder="Saisir votre établissement" />
 												</div>
 												<div class="form-group">
-													<label>E-mail personnel :</label> <input
-														class="form-control" type="email"
-														placeholder="email@expl.com">
-												</div>
-												<div>
-													<label>Workshop :</label> <input class="form-control"
-														placeholder="liste des workshops ici">
+													<label>E-mail personnel :</label>
+													<f:input path="email" class="form-control" type="email"
+														placeholder="email@expl.com" />
 												</div>
 												<div style="margin-left: 30%; margin-top: 3%">
 													<button type="submit" class="btn btn-success">Confirmer</button>
 													<button type="reset" class="btn btn-info">Réinitialiser</button>
 												</div>
-											</form>
+											</f:form>
 											<!-- /.col-lg-6 (nested) -->
 										</div>
 										<!-- /.row (nested) -->

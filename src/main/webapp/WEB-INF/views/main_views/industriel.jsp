@@ -51,7 +51,7 @@
 		</div>
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
-				<c:url value="/industriel/add" var="ajouterIndustriel"/>
+				<c:url value="/industriel/add" var="ajouterIndustriel" />
 				<li class="breadcrumb-item"><a href="${ajouterIndustriel }">Ajouter</a></li>
 				<li class="breadcrumb-item"><a href="#">Library</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
@@ -63,8 +63,7 @@
 				<div class="panel-heading">Liste des industriels inscrits</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
-					<table width="100%"
-						class="table table-striped table-bordered table-hover"
+					<table class="table table-striped table-bordered table-hover"
 						id="dataTables-example">
 						<thead>
 							<tr>
@@ -78,23 +77,44 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="odd gradeX">
-								<c:forEach items="${industriels }" var="indus">
+							<c:forEach items="${industriels }" var="indus">
+								<tr class="odd gradeX">
 									<td>${indus.getNom() }</td>
 									<td>${indus.getPrenom() }</td>
 									<td>${indus.getPoste() }</td>
-									<td class="center">${indus.getEntreprise() }</td>
-									<td class="center">${indus.getNumeroTelephone() }</td>
+									<td>${indus.getEntreprise() }</td>
+									<td>${indus.getNumeroTelephone() }</td>
 									<td>${indus.getEmail() }</td>
-									<td>
-										<a href="#" title="Modifier"><i
-												class="glyphicon glyphicon-edit"></i></a>&ensp; 
-												&ensp;&ensp;
-										<a href="#"
-											title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
-									</td>
-								</c:forEach>
-							</tr>
+									<td><a href="#" title="Modifier"><i
+											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
+										href="#" data-toggle="modal" data-target="#myModal" title="Supprimer"><i
+											class="glyphicon glyphicon-trash"></i></a>
+										<div class="modal fade" id="myModal" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">&times;</button>
+														<h4 class="modal-title" id="myModalLabel">Supprimer</h4>
+													</div>
+													<div class="modal-body">
+													Voulez vous supprimer !
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-primary"
+															data-dismiss="modal">Annuler</button>
+														<button type="button" class="btn btn-danger">Confirmer
+															</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

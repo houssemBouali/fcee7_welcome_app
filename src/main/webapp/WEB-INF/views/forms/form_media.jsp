@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,39 +44,46 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-6">
-											<form role="form">
+											<c:url value="/media/add" var="url_add" />
+											<f:form modelAttribute="media" action="${url_add }"
+												method="post" role="form">
 												<div class="form-group">
-													<label>Nom :</label> <input class="form-control"
-														placeholder="Saisir votre nom">
+													<label>Nom :</label>
+													<f:input path="nom" class="form-control"
+														placeholder="Saisir votre nom" />
 												</div>
 												<div class="form-group">
-													<label>Prénom :</label> <input class="form-control"
-														placeholder="Saisir votre prénom">
+													<label>Prénom :</label>
+													<f:input path="prenom" class="form-control"
+														placeholder="Saisir votre prénom" />
 												</div>
 												<div class="form-group">
-													<label>Statut :</label> <input class="form-control"
-														placeholder="Saisir votre statut">
+													<label>Statut :</label>
+													<f:input path="statut" class="form-control"
+														placeholder="Saisir votre statut" />
 												</div>
 												<div class="form-group">
-													<label>Chaîne tv/radio :</label> <input
-														class="form-control" placeholder="chaîne ou radio">
+													<label>Chaîne tv/radio :</label>
+													<f:input path="chaine" class="form-control"
+														placeholder="chaîne ou radio" />
 												</div>
 												<label>N° téléphone :</label>
 												<div class="form-group input-group">
 
-													<span class="input-group-addon">+216</span> <input
-														type="text" class="form-control" placeholder="99 999 999">
+													<span class="input-group-addon">+216</span>
+													<f:input path="numTelephone" type="number"
+														class="form-control" placeholder="99 999 999" />
 												</div>
 												<div class="form-group">
-													<label>E-mail personnel :</label> <input
-														class="form-control" type="email"
-														placeholder="email@expl.com">
+													<label>E-mail personnel :</label>
+													<f:input path="email" class="form-control" type="email"
+														placeholder="email@expl.com" />
 												</div>
 												<div style="margin-left: 30%; margin-top: 3%">
 													<button type="submit" class="btn btn-success">Confirmer</button>
 													<button type="reset" class="btn btn-info">Réinitialiser</button>
 												</div>
-											</form>
+											</f:form>
 											<!-- /.col-lg-6 (nested) -->
 										</div>
 										<!-- /.row (nested) -->

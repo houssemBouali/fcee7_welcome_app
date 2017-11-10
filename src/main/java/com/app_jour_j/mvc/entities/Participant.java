@@ -20,10 +20,7 @@ public class Participant implements Serializable {
 	private String prenom;
 	private String statut; // etudiant ou autre
 	private String etablissement;
-	private Long numeroTelephone;
 	private String email;
-	private String workshopSelectionne;
-	private String defaultLogo;
 
 	public Participant() {
 		// TODO Auto-generated constructor stub
@@ -49,16 +46,8 @@ public class Participant implements Serializable {
 		return etablissement;
 	}
 
-	public Long getNumeroTelephone() {
-		return numeroTelephone;
-	}
-
 	public String getEmail() {
 		return email;
-	}
-
-	public String getWorkshopSelectionne() {
-		return workshopSelectionne;
 	}
 
 	public void setIdParticipant(Long idParticipant) {
@@ -81,24 +70,8 @@ public class Participant implements Serializable {
 		this.etablissement = etablissement;
 	}
 
-	public void setNumeroTelephone(Long numeroTelephone) {
-		this.numeroTelephone = numeroTelephone;
-	}
-
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void setWorkshopSelectionne(String workshopSelectionne) {
-		this.workshopSelectionne = workshopSelectionne;
-	}
-
-	public String getDefaultLogo() {
-		return defaultLogo;
-	}
-
-	public void setDefaultLogo(String defaultLogo) {
-		this.defaultLogo = defaultLogo;
 	}
 
 }

@@ -7,7 +7,8 @@
 
 <!-- Bootstrap Core CSS -->
 <title>FCCE 7eme Edition</title>
-<link rel="icon" href="http://www.out.tn/uploads/media/default/0001/04/thumb_3687_default_big.png">
+<link rel="icon"
+	href="http://www.out.tn/uploads/media/default/0001/04/thumb_3687_default_big.png">
 <link
 	href="<%=request.getContextPath()%>/resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -55,8 +56,7 @@
 						<!-- INDUSTRIEL -->
 						<c:url value="/industriel/" var="industriel" />
 						<li><a href="${industriel }"><i
-								class="glyphicon glyphicon-wrench"></i>
-								&ensp;&ensp;Industriels</a></li>
+								class="glyphicon glyphicon-wrench"></i> &ensp;&ensp;Industriels</a></li>
 						<!-- MEDIA -->
 						<c:url value="/media/" var="media" />
 						<li><a href="${media }"><i
@@ -73,7 +73,13 @@
 			</div>
 			<!-- /.navbar-static-side -->
 		</nav>
+		<div align="right">
+			<nav class="navbar navbar navbar-fixed-bottom">
+				<h1 style="margin-right: 10px;">Eniso Google Club</h1>
+			</nav>
+		</div>
 	</div>
+
 	<!-- jQuery -->
 	<script
 		src="<%=request.getContextPath()%>/resources/vendor/jquery/jquery.min.js"></script>

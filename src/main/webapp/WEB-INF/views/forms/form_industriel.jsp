@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,44 +44,45 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-6">
-											<form role="form">
+											<c:url value="/industriel/add" var="url_add" />
+											<f:form modelAttribute="industriel" action="${url_add }" method="post" role="form">
 												<div class="form-group">
-													<label>Nom :</label> <input class="form-control"
-														placeholder="Saisir votre nom">
+													<label>Nom :</label> <f:input path="nom" class="form-control"
+														placeholder="Saisir votre nom"/>
 												</div>
 												<div class="form-group">
-													<label>Prénom :</label> <input class="form-control"
-														placeholder="Saisir votre prénom">
+													<label>Prénom :</label> <f:input path="prenom" class="form-control"
+														placeholder="Saisir votre prénom"/>
 												</div>
 												<div class="form-group">
-													<label>Poste :</label> <input class="form-control"
-														placeholder="Exemple : ingénieur">
+													<label>Poste :</label> <f:input path="poste" class="form-control"
+														placeholder="Exemple : ingénieur" />
 												</div>
 												<div class="form-group">
-													<label>Entreprise :</label> <select class="form-control">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-													</select>
+													<label>Entreprise :</label> <f:select path="entreprise" class="form-control">
+														<f:option value="1">1</f:option>
+														<f:option value="2">2</f:option>
+														<f:option value="3">3</f:option>
+														<f:option value="4">4</f:option>
+														<f:option value="5">5</f:option>
+													</f:select>
 												</div>
 												<label>N° téléphone :</label>
 												<div class="form-group input-group">
 
-													<span class="input-group-addon">+216</span> <input
-														type="text" class="form-control" placeholder="99 999 999">
+													<span class="input-group-addon">+216</span> <f:input path="numeroTelephone"
+														type="text" class="form-control" placeholder="99 999 999"/>
 												</div>
 												<div class="form-group">
-													<label>E-mail personnel :</label> <input
+													<label>E-mail personnel :</label> <f:input path="email"
 														class="form-control" type="email"
-														placeholder="email@expl.com">
+														placeholder="email@expl.com"/>
 												</div>
 												<div style="margin-left: 30%; margin-top: 3%">
 													<button type="submit" class="btn btn-success">Confirmer</button>
 													<button type="reset" class="btn btn-info">Réinitialiser</button>
 												</div>
-											</form>
+											</f:form>
 											<!-- /.col-lg-6 (nested) -->
 										</div>
 										<!-- /.row (nested) -->

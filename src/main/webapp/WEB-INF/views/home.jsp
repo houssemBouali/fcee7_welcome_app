@@ -1,13 +1,9 @@
-<%@ include file="/WEB-INF/views/includes/includes.jsp" %>
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <html>
 <head>
-	<title>Home</title>
+<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-<P>  The time on the server is ${serverTime}. </P>
-Voilaaaaaaaaa
+	<%@ include file="/WEB-INF/views/menu/menu.jsp"%>
 </body>
 </html>

@@ -6,7 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.app_jour_j.mvc.entities.Participant;
 import com.app_jour_j.mvc.services.IParticipantService;
 
@@ -27,9 +30,42 @@ public class ParticipantController {
 		return "main_views/participant";
 	}
 
-	@RequestMapping(value = "/add")
-	public String add() {
-
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add(Model model) {
+		Participant participant = new Participant();
+		model.addAttribute("participant", participant);
+		
 		return "forms/form_participant";
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(Model model, Participant participant) {
+		participantService.save(participant);
+		
+		return "redirect:/participant/add";
+	}
+	
+
+	@RequestMapping(value = "/edit/{idParticipant}")
+	public String editParticipant(Model model, @PathVariable Long idParticipant) {
+		if (idParticipant != null) {
+			Participant participant = participantService.getById(idParticipant);
+			if (participant != null) {
+				model.addAttribute("enseignant", participant);
+			}
+		}
+		return "forms/form_participant";
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteParticipant(Model model, @PathVariable Long id) {
+		
+		if (id != null) {
+			Participant participant = participantService.getById(id);
+			if (participant != null) {
+				participantService.remove(id);
+			}
+		}
+		return "redirect:/participant/";
 	}
 }

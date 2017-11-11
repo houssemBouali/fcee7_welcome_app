@@ -27,26 +27,37 @@
 <link
 	href="<%=request.getContextPath()%>/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<title>Insert title here</title>
 </head>
 <body>
 	<div>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
 			<div class="navbar-header">
-				<h1 align="Center" style="margin-left: 20px; color: blue;">FCEE</h1>
-				7eme Edition
+				<div class="container">
+					<img alt="logo"
+						src="<%=request.getContextPath()%>/resources/photos/fcee7.png"
+						height="100px" width="100px" align="left">
+					<h1 style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">
+						&nbsp;&nbsp;Forum de Convergence Eniso Entreprise<br> &nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;7eme edition<small>Industry
+							4.0</small>
+					</h1>
+				</div>
 			</div>
-			<div>
-				<img alt="logo"
-					src="http://www.out.tn/uploads/media/default/0001/04/thumb_3687_default_big.png"
-					height="70px" width="300px" align="right">
-			</div>
-			<br>
+			<br><br><br><br>
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
-						<li><a href="javascript:void(0)"><i
+						<li>
+						<c:url value="/home/" var="home" />
+						<a href="${home }"><i
 								class="fa fa-dashboard fa-fw"></i>&ensp;&ensp;Tableau De Bord</a></li>
 						<!-- ENSEIGNANT -->
 						<c:url value="/enseignant/" var="enseignant" />

@@ -1,5 +1,6 @@
 package com.app_jour_j.mvc.controllers;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.app_jour_j.mvc.entities.Industriel;
 import com.app_jour_j.mvc.services.IIndustrielService;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfWriter;
 
 @Controller
 @RequestMapping(value = "/industriel")
@@ -46,7 +51,7 @@ public class IndustrielController {
 		} else {			
 			indusService.save(industriel);
 		}
-
+		generatePdf(industriel);
 		return "redirect:/industriel/add";
 	}
 	
@@ -71,5 +76,29 @@ public class IndustrielController {
 			}
 		}
 		return "redirect:/industriel/";
+	}
+	
+	private void generatePdf(Industriel industriel){
+		Document doc = new Document();
+		
+		try {
+			PdfWriter.getInstance(doc, 
+					new FileOutputStream("C:\\Users\\BOUALI\\Documents"
+										+ "\\workspace-sts-3.8.4.RELEASE\\app_jour_j"
+										+ "\\pdf\\industiels\\"+industriel.getNom()+".pdf"));
+			Rectangle size = new Rectangle(228, 150);
+			doc.setPageSize(size);
+			doc.addAuthor(EnseignantController.AUTHOR);
+			doc.addTitle("Industriel");
+			doc.open();
+			Phrase infos = new Phrase("Nom : " + industriel.getNom() +  
+									 		"\nPrénom : " + industriel.getPrenom() + 
+									 		"\nEntreprise : " + industriel.getEntreprise());
+			doc.add(infos);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		doc.close();
+		
 	}
 }

@@ -15,5 +15,5 @@ public interface IGenericDao<E> {
 	public void remove(Long id);
 
 	public E findOne(String paramName, Object paramValue);
-
+	
 }

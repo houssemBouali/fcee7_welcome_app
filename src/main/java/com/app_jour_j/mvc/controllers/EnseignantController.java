@@ -1,5 +1,6 @@
 package com.app_jour_j.mvc.controllers;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.app_jour_j.mvc.entities.Enseignant;
 import com.app_jour_j.mvc.services.IEnseignantService;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfWriter;
 
 @Controller
 @RequestMapping(value = "/enseignant")
 public class EnseignantController {
+
+	public static final String AUTHOR = "Eniso Google Club";
 
 	@Autowired
 	IEnseignantService enseignantService;
@@ -45,7 +52,7 @@ public class EnseignantController {
 		} else {
 			enseignantService.save(enseignant);
 		}
-
+		generatePdf(enseignant);
 		return "redirect:/enseignant/add";
 	}
 
@@ -59,17 +66,42 @@ public class EnseignantController {
 		}
 		return "forms/form_enseignant";
 	}
-	
+
 	@RequestMapping(value = "/delete/{id}")
 	public String deleteEnseignant(Model model, @PathVariable Long id) {
-		
+
 		if (id != null) {
 			Enseignant enseignant = enseignantService.getById(id);
 			if (enseignant != null) {
-				enseignantService	.remove(id);
+				enseignantService.remove(id);
 			}
 		}
 		return "redirect:/enseignant/";
+	}
+
+	private void generatePdf(Enseignant enseignant) {
+		Document doc = new Document();
+
+		try {
+			PdfWriter.getInstance(doc,
+					new FileOutputStream(
+							"C:\\Users\\BOUALI\\Documents"
+							+ "\\workspace-sts-3.8.4.RELEASE\\"
+							+ "app_jour_j\\pdf\\enseignants\\" + enseignant.getNom() + ".pdf"));
+			Rectangle size = new Rectangle(228, 150);
+			doc.setPageSize(size);
+			doc.addAuthor(AUTHOR);
+			doc.addTitle("Enseignant");
+			doc.open();
+			Phrase infos = new Phrase("Nom : " + enseignant.getNom() + 
+									  "\nPrénom : " + enseignant.getPrenom() + 
+									  "\nGrade : " + enseignant.getGrade());
+			doc.add(infos);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		doc.close();
+
 	}
 
 }

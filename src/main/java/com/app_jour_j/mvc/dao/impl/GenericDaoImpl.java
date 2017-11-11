@@ -58,7 +58,7 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
-
+	
 	public Class<E> getType() {
 		return type;
 	}

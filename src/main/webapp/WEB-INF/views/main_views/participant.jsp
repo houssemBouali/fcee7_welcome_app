@@ -73,9 +73,9 @@
 									<td>${participant.getStatut() }</td>
 									<td>${participant.getEtablissement() }</td>
 									<td>${participant.getEmail() }</td>
-									<td>
 									<c:url value="/participant/edit/${participant.getIdParticipant() }"
 										var="url_edit" />
+									<td>
 									<a href="${url_edit }" title="Modifier"><i
 											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
 										href="javascript:void(0);" data-toggle="modal" data-target="#modalParticipant${participant.getIdParticipant() }"

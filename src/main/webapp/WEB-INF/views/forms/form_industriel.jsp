@@ -46,6 +46,7 @@
 										<div class="col-lg-6">
 											<c:url value="/industriel/add" var="url_add" />
 											<f:form modelAttribute="industriel" action="${url_add }" method="post" role="form">
+											<f:hidden path="idIndustriel"/>	
 												<div class="form-group">
 													<label>Nom :</label> <f:input path="nom" class="form-control"
 														placeholder="Saisir votre nom"/>

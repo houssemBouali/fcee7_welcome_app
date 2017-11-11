@@ -31,7 +31,7 @@ public class ParticipantController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String add(Model model) {
+	public String addParticipant(Model model) {
 		Participant participant = new Participant();
 		model.addAttribute("participant", participant);
 		
@@ -39,8 +39,13 @@ public class ParticipantController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(Model model, Participant participant) {
-		participantService.save(participant);
+	public String saveParticipant(Model model, Participant participant) {
+		
+		if (participant.getIdParticipant() != null) {
+			participantService.update(participant);
+		} else {			
+			participantService.save(participant);
+		}
 		
 		return "redirect:/participant/add";
 	}
@@ -51,7 +56,7 @@ public class ParticipantController {
 		if (idParticipant != null) {
 			Participant participant = participantService.getById(idParticipant);
 			if (participant != null) {
-				model.addAttribute("enseignant", participant);
+				model.addAttribute("participant", participant);
 			}
 		}
 		return "forms/form_participant";

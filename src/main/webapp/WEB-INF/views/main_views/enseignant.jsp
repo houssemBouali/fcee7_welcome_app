@@ -85,7 +85,7 @@
 															aria-hidden="true">&times;</button>
 														<h4 class="modal-title" id="myModalLabel">Supprimer</h4>
 													</div>
-													<div class="modal-body">Voulez vous supprimer !</div>
+													<div class="modal-body">Voulez vous supprimer ${enseignant.getNom() } !</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-primary"
 															data-dismiss="modal">Annuler</button>

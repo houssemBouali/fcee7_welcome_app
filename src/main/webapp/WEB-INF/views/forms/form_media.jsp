@@ -47,6 +47,7 @@
 											<c:url value="/media/add" var="url_add" />
 											<f:form modelAttribute="media" action="${url_add }"
 												method="post" role="form">
+											<f:hidden path="idMedia"/>	
 												<div class="form-group">
 													<label>Nom :</label>
 													<f:input path="nom" class="form-control"

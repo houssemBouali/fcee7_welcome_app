@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,7 +31,7 @@ public class MediaController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String add(Model model) {
+	public String addMedia(Model model) {
 		Media media = new Media();
 		model.addAttribute("media", media);
 
@@ -38,9 +39,37 @@ public class MediaController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String add(Model model, Media media) {
-		mediaService.save(media);
+	public String saveMedia(Model model, Media media) {
+		
+		if(media.getIdMedia() != null) {
+			mediaService.update(media);
+		} else {			
+			mediaService.save(media);
+		}
 
 		return "redirect:/media/add";
+	}
+	
+	@RequestMapping(value = "/edit/{idMedia}")
+	public String editMedia(Model model, @PathVariable Long idMedia) {
+		if (idMedia != null) {
+			Media media = mediaService.getById(idMedia);
+			if (media != null) {
+				model.addAttribute("media", media);
+			}
+		}
+		return "forms/form_media";
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteMedia(Model model, @PathVariable Long id) {
+		
+		if (id != null) {
+			Media media = mediaService.getById(id);
+			if (media != null) {
+				mediaService.remove(id);
+			}
+		}
+		return "redirect:/media/";
 	}
 }

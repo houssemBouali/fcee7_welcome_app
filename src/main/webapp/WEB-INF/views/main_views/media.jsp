@@ -75,11 +75,13 @@
 									<td>${media.getChaine() }</td>
 									<td>${media.getNumTelephone() }</td>
 									<td>${media.getEmail() }</td>
-									<td><a href="#" title="Modifier"><i
+									<c:url value="/media/edit/${media.getIdMedia() }"
+										var="url_edit" />
+									<td><a href="${url_edit }" title="Modifier"><i
 											class="glyphicon glyphicon-edit"></i></a>&ensp; &ensp;&ensp; <a
-										href="#" data-toggle="modal" data-target="#myModal" title="Supprimer"><i
+										href="javscript:void(0);" data-toggle="modal" data-target="#modalMedia${media.getIdMedia() }" title="Supprimer"><i
 											class="glyphicon glyphicon-trash"></i></a>
-										<div class="modal fade" id="myModal" tabindex="-1"
+										<div class="modal fade" id="modalMedia${media.getIdMedia() }" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
 											<div class="modal-dialog">
@@ -95,8 +97,9 @@
 													<div class="modal-footer">
 														<button type="button" class="btn btn-primary"
 															data-dismiss="modal">Annuler</button>
-														<button type="button" class="btn btn-danger">Confirmer
-															</button>
+															<c:url value="/media/delete/${media.getIdMedia() }" var="url_del" />
+														<a href="${url_del }" class="btn btn-danger">Confirmer
+															</a>
 													</div>
 												</div>
 												<!-- /.modal-content -->

@@ -56,11 +56,18 @@ public class Enseignant implements Serializable {
 		this.grade = grade;
 	}
 
+<<<<<<< HEAD
+	public String toString() {
+
+		String str = "Nom : " + this.getNom() 
+					+ "\nPrÃ©nom : " + this.getPrenom()
+=======
 	@Override
 	public String toString() {
 
 		String str = "Nom : " + this.getNom() 
 					+ "\nPrénom : " + this.getPrenom()
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 					+ "\nGrade : " + this.getGrade();
 		return str;
 	}

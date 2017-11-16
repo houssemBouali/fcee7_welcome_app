@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.app_jour_j.mvc.entities.Enseignant;
 import com.app_jour_j.mvc.services.IEnseignantService;
 import com.itextpdf.text.Document;
+<<<<<<< HEAD
+import com.itextpdf.text.FontFactory;
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -102,9 +106,16 @@ public class EnseignantController {
 			doc.open();
 			docFullInfo.open();
 			Phrase infos = new Phrase("Nom : " + enseignant.getNom() + 
+<<<<<<< HEAD
+									  "\nPrÃ©nom : " + enseignant.getPrenom() + 
+									  "\nGrade : " + enseignant.getGrade(),
+									  FontFactory.getFont(FontFactory.COURIER, 10));
+			Phrase fullInfos = new Phrase(enseignant.toString(),FontFactory.getFont(FontFactory.COURIER, 10));
+=======
 									  "\nPrénom : " + enseignant.getPrenom() + 
 									  "\nGrade : " + enseignant.getGrade());
 			Phrase fullInfos = new Phrase(enseignant.toString());
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 			doc.add(infos);
 			docFullInfo.add(fullInfos);
 			

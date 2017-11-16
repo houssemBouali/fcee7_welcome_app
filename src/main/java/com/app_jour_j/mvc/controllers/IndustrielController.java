@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.app_jour_j.mvc.entities.Industriel;
 import com.app_jour_j.mvc.services.IIndustrielService;
 import com.itextpdf.text.Document;
+<<<<<<< HEAD
+import com.itextpdf.text.FontFactory;
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -80,12 +84,38 @@ public class IndustrielController {
 	
 	private void generatePdf(Industriel industriel){
 		Document doc = new Document();
+<<<<<<< HEAD
+		Document docFull = new Document();
+=======
 		
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		try {
 			PdfWriter.getInstance(doc, new FileOutputStream(
 					getClass().getResource("/pdf/industriels/").getFile() 
 					+ industriel.getIdIndustriel()
 					+"_"+industriel.getNom() + ".pdf"));
+<<<<<<< HEAD
+			PdfWriter.getInstance(docFull, new FileOutputStream(
+					getClass().getResource("/pdf/industriels/").getFile() 
+					+ industriel.getIdIndustriel()
+					+"_full_"+industriel.getNom() + ".pdf"));
+			Rectangle size = new Rectangle(228, 150);
+			doc.setPageSize(size);
+			docFull.setPageSize(size);
+			doc.addAuthor(EnseignantController.AUTHOR);
+			docFull.addAuthor(EnseignantController.AUTHOR);
+			doc.addTitle("Industriel");
+			docFull.addTitle("Industreil_full");
+			doc.open();
+			docFull.open();
+			Phrase infos = new Phrase("Nom : " + industriel.getNom() +  
+									 		"\nPrÃ©nom : " + industriel.getPrenom() + 
+									 		"\nEntreprise : " + industriel.getEntreprise(),
+									 		FontFactory.getFont(FontFactory.COURIER, 10));
+			Phrase fullInfos = new Phrase(industriel.toString(),FontFactory.getFont(FontFactory.COURIER, 10));
+			doc.add(infos);
+			docFull.add(fullInfos);
+=======
 			Rectangle size = new Rectangle(228, 150);
 			doc.setPageSize(size);
 			doc.addAuthor(EnseignantController.AUTHOR);
@@ -95,10 +125,15 @@ public class IndustrielController {
 									 		"\nPrénom : " + industriel.getPrenom() + 
 									 		"\nEntreprise : " + industriel.getEntreprise());
 			doc.add(infos);
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		doc.close();
+<<<<<<< HEAD
+		docFull.close();
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		
 	}
 }

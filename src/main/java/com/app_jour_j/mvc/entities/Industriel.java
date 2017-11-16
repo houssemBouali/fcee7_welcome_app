@@ -83,4 +83,18 @@ public class Industriel implements Serializable {
 		this.email = email;
 	}
 
+<<<<<<< HEAD
+	public String toString() {
+
+		String str = "Nom : " + this.getNom() 
+				   + "\nPrénom : " + this.getPrenom() 
+				   + "\nPoste : " + this.getPoste()
+				   + "\nEntreprise : " + this.getEntreprise()
+				   + "\nN° Telephone : " + this.getNumeroTelephone()
+				   + "\nE-mail : " + this.getEmail();
+		return str;
+	}
+
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 }

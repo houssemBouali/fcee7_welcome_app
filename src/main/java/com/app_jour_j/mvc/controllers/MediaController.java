@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.app_jour_j.mvc.entities.Media;
 import com.app_jour_j.mvc.services.IMediaService;
 import com.itextpdf.text.Document;
+<<<<<<< HEAD
+import com.itextpdf.text.FontFactory;
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -80,12 +84,42 @@ public class MediaController {
 	
 	private void generatePdf(Media media){
 		Document doc = new Document();
+<<<<<<< HEAD
+		Document docFull = new Document();
+=======
 		
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		try {
 			PdfWriter.getInstance(doc, new FileOutputStream(
 					getClass().getResource("/pdf/medias/").getFile() 
 					+ media.getIdMedia()
 					+"_"+media.getNom() + ".pdf"));
+<<<<<<< HEAD
+			System.out.println(getClass().getResource("/pdf/medias/").getFile() 
+					+ media.getIdMedia()
+					+"_"+media.getNom() + ".pdf");
+			PdfWriter.getInstance(docFull, new FileOutputStream(
+					getClass().getResource("/pdf/medias/").getFile() 
+					+ media.getIdMedia()
+					+"_full_"+media.getNom() + ".pdf"));	
+			Rectangle size = new Rectangle(228, 150);
+			doc.setPageSize(size);
+			docFull.setPageSize(size);
+			doc.addAuthor(EnseignantController.AUTHOR);
+			docFull.addAuthor(EnseignantController.AUTHOR);
+			doc.addTitle("Media");
+			docFull.addTitle("Media_full");
+			doc.open();
+			docFull.open();
+			Phrase infos = new Phrase("Nom : " + media.getNom() +  
+									 		"\nPrï¿½nom : " + media.getPrenom() + 
+									 		"\nChaine : " + media.getChaine(),
+									 		FontFactory.getFont(FontFactory.COURIER, 10));
+			Phrase fullInfos = new Phrase(media.toString(), FontFactory.getFont(FontFactory.COURIER, 10));
+			
+			doc.add(infos);
+			docFull.add(fullInfos);
+=======
 			Rectangle size = new Rectangle(228, 150);
 			doc.setPageSize(size);
 			doc.addAuthor(EnseignantController.AUTHOR);
@@ -95,10 +129,15 @@ public class MediaController {
 									 		"\nPrénom : " + media.getPrenom() + 
 									 		"\nChaine : " + media.getChaine());
 			doc.add(infos);
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		doc.close();
+<<<<<<< HEAD
+		docFull.close();
+=======
 		
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 	}
 }

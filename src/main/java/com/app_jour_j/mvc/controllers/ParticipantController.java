@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.app_jour_j.mvc.entities.Participant;
 import com.app_jour_j.mvc.services.IParticipantService;
 import com.itextpdf.text.Document;
+<<<<<<< HEAD
+import com.itextpdf.text.FontFactory;
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -81,12 +85,38 @@ public class ParticipantController {
 	
 	private void generatePdf(Participant participant){
 		Document doc = new Document();
+<<<<<<< HEAD
+		Document docFull = new Document();
+=======
 		
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		try {
 			PdfWriter.getInstance(doc, new FileOutputStream(
 					getClass().getResource("/pdf/participants/").getFile() 
 					+ participant.getIdParticipant()
 					+"_"+participant.getNom() + ".pdf"));
+<<<<<<< HEAD
+			PdfWriter.getInstance(docFull, new FileOutputStream(
+					getClass().getResource("/pdf/participants/").getFile() 
+					+ participant.getIdParticipant()
+					+"_full_"+participant.getNom() + ".pdf"));
+			Rectangle size = new Rectangle(228, 150);
+			doc.setPageSize(size);
+			docFull.setPageSize(size);
+			doc.addAuthor(EnseignantController.AUTHOR);
+			docFull.addAuthor(EnseignantController.AUTHOR);
+			doc.addTitle("Participant");
+			docFull.addTitle("Participant_full");
+			doc.open();
+			docFull.open();
+			Phrase infos = new Phrase("Nom : " + participant.getNom() +  
+									  "\nPrÃ©nom : " + participant.getPrenom() + 
+									  "\nEtablissement : " + participant.getEtablissement(),
+									  FontFactory.getFont(FontFactory.COURIER, 10));
+			Phrase fullInfo = new Phrase(participant.toString(), FontFactory.getFont(FontFactory.COURIER, 10));
+			doc.add(infos);
+			docFull.add(fullInfo);
+=======
 			Rectangle size = new Rectangle(228, 150);
 			doc.setPageSize(size);
 			doc.addAuthor(EnseignantController.AUTHOR);
@@ -96,10 +126,15 @@ public class ParticipantController {
 									 		"\nPrénom : " + participant.getPrenom() + 
 									 		"\nEtablissement : " + participant.getEtablissement());
 			doc.add(infos);
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		doc.close();
+<<<<<<< HEAD
+		docFull.close();
+=======
+>>>>>>> 31a8d172d443b98b819568cb2d998095ff9f6336
 		
 	}
 }

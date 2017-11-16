@@ -81,26 +81,38 @@ public class EnseignantController {
 
 	private void generatePdf(Enseignant enseignant) {
 		Document doc = new Document();
+		Document docFullInfo = new Document();
 
 		try {
-			PdfWriter.getInstance(doc,
-					new FileOutputStream(
-							"C:\\Users\\BOUALI\\Documents"
-							+ "\\workspace-sts-3.8.4.RELEASE\\"
-							+ "app_jour_j\\pdf\\enseignants\\" + enseignant.getNom() + ".pdf"));
+			PdfWriter.getInstance(doc, new FileOutputStream(
+					getClass().getResource("/pdf/enseignants/").getFile() 
+					+ enseignant.getIdProfessor()
+					+"_"+enseignant.getNom() + ".pdf"));
+			PdfWriter.getInstance(docFullInfo, new FileOutputStream(
+					getClass().getResource("/pdf/enseignants/").getFile() 
+					+ enseignant.getIdProfessor()
+					+"_full_"+enseignant.getNom() + ".pdf"));
 			Rectangle size = new Rectangle(228, 150);
 			doc.setPageSize(size);
+			docFullInfo.setPageSize(size);
 			doc.addAuthor(AUTHOR);
+			docFullInfo.addAuthor(AUTHOR);
 			doc.addTitle("Enseignant");
+			docFullInfo.addTitle("Enseignant_full");
 			doc.open();
+			docFullInfo.open();
 			Phrase infos = new Phrase("Nom : " + enseignant.getNom() + 
 									  "\nPrénom : " + enseignant.getPrenom() + 
 									  "\nGrade : " + enseignant.getGrade());
+			Phrase fullInfos = new Phrase(enseignant.toString());
 			doc.add(infos);
+			docFullInfo.add(fullInfos);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		doc.close();
+		docFullInfo.close();
 
 	}
 

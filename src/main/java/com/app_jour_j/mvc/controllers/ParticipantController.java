@@ -83,11 +83,10 @@ public class ParticipantController {
 		Document doc = new Document();
 		
 		try {
-			PdfWriter.getInstance(doc, 
-					new FileOutputStream("C:\\Users\\BOUALI\\Documents"
-										+ "\\workspace-sts-3.8.4.RELEASE"
-										+ "\\app_jour_j\\pdf\\participants\\"
-										+participant.getNom()+".pdf"));
+			PdfWriter.getInstance(doc, new FileOutputStream(
+					getClass().getResource("/pdf/participants/").getFile() 
+					+ participant.getIdParticipant()
+					+"_"+participant.getNom() + ".pdf"));
 			Rectangle size = new Rectangle(228, 150);
 			doc.setPageSize(size);
 			doc.addAuthor(EnseignantController.AUTHOR);
